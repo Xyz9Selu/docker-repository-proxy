@@ -1,0 +1,16 @@
+{
+  "name": "docker-repository-proxy",
+  "private": true,
+  "description": "",
+  "version": "1.0.0",
+  "author": "Xyz9Selu <xyz.9selu@gmail.com>",
+  "dependencies": {
+    "express": "^4.21.1",
+    "raw-body": "^3.0.0"
+  },
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "license": "MIT",
+  "main": "src/app.js"
+}

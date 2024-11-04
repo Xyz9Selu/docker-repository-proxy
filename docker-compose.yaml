@@ -1,0 +1,10 @@
+version: '3'
+services:
+  docker-repository-proxy:
+    build: .
+    container_name: docker-repository-proxy
+    environment:
+      - CUSTOM_DOMAIN=your.proxy.domain
+      - PORT=3000
+    ports:
+      - "127.0.0.1:3000:3000"
