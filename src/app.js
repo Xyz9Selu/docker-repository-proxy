@@ -217,9 +217,9 @@ async function fetchToken(wwwAuthenticate, scope, authorization) {
 function responseUnauthorized(url, res) {
   const headers = {};
   if (MODE == "debug") {
-    headers['WWW-Authenticate'] = `Bearer realm="http://${url.host}/v2/auth",service="cloudflare-docker-proxy"`;
+    headers['WWW-Authenticate'] = `Bearer realm="http://${url.host}/v2/auth",service="docker-repository-proxy"`;
   } else {
-    headers['WWW-Authenticate'] = `Bearer realm="https://${url.hostname}/v2/auth",service="cloudflare-docker-proxy"`;
+    headers['WWW-Authenticate'] = `Bearer realm="https://${url.hostname}/v2/auth",service="docker-repository-proxy"`;
   }
   res.set(headers);
   res.status(401).json({ message: "UNAUTHORIZED" });
