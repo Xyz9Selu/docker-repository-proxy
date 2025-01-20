@@ -3,7 +3,7 @@ FROM node:22
 WORKDIR /app
 
 COPY package.json /app
-RUN npm install --registry=http://npmjs.hkops.zhihuianxin.com
+RUN npm install
 
 COPY . /app
 
