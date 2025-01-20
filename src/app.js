@@ -70,8 +70,7 @@ app.use(async (req, res, next) => {
       // Copy the response headers and body.
       resp.headers.forEach((value, name) => res.setHeader(name, value));
       res.status(resp.status);
-      const body = await resp.arrayBuffer();
-      res.send(Buffer.from(body));
+      resp.body.pipe(res);
       return;
     } catch (err) {
       next(err);
@@ -92,8 +91,7 @@ app.use(async (req, res, next) => {
         // Copy the response headers and body.
         resp.headers.forEach((value, name) => res.setHeader(name, value));
         res.status(resp.status);
-        const body = await resp.arrayBuffer();
-        res.send(Buffer.from(body));
+        resp.body.pipe(res);
         return;
       }
 
@@ -102,8 +100,7 @@ app.use(async (req, res, next) => {
         // Copy the response headers and body.
         resp.headers.forEach((value, name) => res.setHeader(name, value));
         res.status(resp.status);
-        const body = await resp.arrayBuffer();
-        res.send(Buffer.from(body));
+        resp.body.pipe(res);
         return;
       }
 
@@ -123,8 +120,7 @@ app.use(async (req, res, next) => {
       // Copy the response headers and body.
       tokenResp.headers.forEach((value, name) => res.setHeader(name, value));
       res.status(tokenResp.status);
-      const body = await tokenResp.arrayBuffer();
-      res.send(Buffer.from(body));
+      tokenResp.body.pipe(res);
       return;
 
     } catch (err) {
