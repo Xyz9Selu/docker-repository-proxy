@@ -8,3 +8,9 @@ services:
       - PORT=3000
     ports:
       - "127.0.0.1:3000:3000"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    restart: unless-stopped
