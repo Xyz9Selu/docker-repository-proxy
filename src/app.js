@@ -175,8 +175,7 @@ app.use(async (req, res, next) => {
     // Copy the response headers and body.
     resp.headers.forEach((value, name) => res.setHeader(name, value));
     res.status(resp.status);
-    const responseBody = await resp.arrayBuffer();
-    res.send(Buffer.from(responseBody));
+    resp.body.pipe(res);
     return;
   } catch (err) {
     next(err);
